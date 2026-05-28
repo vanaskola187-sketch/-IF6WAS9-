@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="IF6WAS9 — интернет-магазин одежды. Стиль, удобство, точный подбор.">
+    <title>IF6WAS9 — Интернет-магазин одежды</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <nav class="flex flex-between">
+                <div class="logo">IF6WAS9</div>
+                <div class="nav-links flex">
+                    <a href="#catalog">Каталог</a>
+                    <a href="#lookbook">Лукбук</a>
+                    <a href="#reviews">Отзывы</a>
+                    <a href="#contacts">Контакты</a>
+                </div>
+                <div class="nav-actions flex">
+                    <button class="icon-btn" id="searchBtn" title="Поиск">
+                        <svg class="icon icon-lg" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                    </button>
+                    <button class="icon-btn" id="wishlistBtn" title="Избранное">
+                        <svg class="icon icon-lg" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                        <span class="badge" id="wishlistCount">0</span>
+                    </button>
+                    <button class="icon-btn" id="cartBtn" title="Корзина">
+                        <svg class="icon icon-lg" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+                        <span class="badge" id="cartCount">0</span>
+                    </button>
+                    <button class="mobile-toggle" id="menuBtn">
+                        <svg class="icon icon-lg" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Search Overlay -->
+    <div class="search-overlay" id="searchOverlay">
+        <div class="container">
+            <div class="search-box">
+                <span class="search-icon">
+                    <svg class="icon icon-lg" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                </span>
+                <input type="text" class="search-input" id="searchInput" placeholder="Введите название товара и нажмите Enter...">
+                <span class="search-close" id="searchClose">
+                    <svg class="icon icon-lg" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+        <div class="hero-content fade-up">
+            <h1>Стиль без границ</h1>
+            <p>Интерфейс, где эстетика встречается с удобством. Точный подбор размера, прозрачная доставка и checkout без лишних шагов.</p>
+            <div class="flex" style="justify-content: center; gap: 16px;">
+                <a href="#catalog" class="btn btn-primary">Перейти в каталог</a>
+                <button class="btn btn-outline" onclick="openCheckout()">Оформить заказ</button>
+            </div>
+        </div>
+        <div class="scroll-indicator">↓</div>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title fade-up">Как это работает</h2>
+            <div class="grid features-grid">
+                <div class="feature-card fade-up">
+                    <div class="feature-icon icon icon-xl" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></div>
+                    <h3>Умные фильтры</h3>
+                    <p>Мгновенный поиск по категории, размеру и цвету без перезагрузки</p>
+                </div>
+                <div class="feature-card fade-up">
+                    <div class="feature-icon icon icon-xl" viewBox="0 0 24 24"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></div>
+                    <h3>Подбор размера</h3>
+                    <p>Интерактивная таблица, подсказки «большемерит/маломерит»</p>
+                </div>
+                <div class="feature-card fade-up">
+                    <div class="feature-icon icon icon-xl" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></div>
+                    <h3>Живая корзина</h3>
+                    <p>Промокоды, расчёт доставки и прогресс бесплатной отправки</p>
+                </div>
+                <div class="feature-card fade-up">
+                    <div class="feature-icon icon icon-xl" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></div>
+                    <h3>Быстрый чекаут</h3>
+                    <p>3 шага, валидация в реальном времени, заказ без регистрации</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catalog -->
+    <section class="catalog" id="catalog">
+        <div class="container">
+            <h2 class="section-title fade-up">Каталог</h2>
+            <div class="search-info" id="searchInfo"></div>
+            <div class="catalog-layout">
+                <aside class="filters fade-up">
+                    <div class="filter-group">
+                        <h4>
+                            <svg class="icon icon-sm" style="width:1em;height:1em;vertical-align:-2px" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+                            Категория
+                        </h4>
+                        <div class="filter-chips" data-filter="category">
+                            <div class="chip active" data-val="all">Все</div>
+                            <div class="chip" data-val="women">Женское</div>
+                            <div class="chip" data-val="men">Мужское</div>
+                            <div class="chip" data-val="access">Аксессуары</div>
+                        </div>
+                    </div>
+                    <div class="filter-group">
+                        <h4>
+                            <svg class="icon icon-sm" style="width:1em;height:1em;vertical-align:-2px" viewBox="0 0 24 24"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+                            Размер
+                        </h4>
+                        <div class="filter-chips" data-filter="size">
+                            <div class="chip active" data-val="all">Любой</div>
+                            <div class="chip" data-val="XS">XS</div>
+                            <div class="chip" data-val="S">S</div>
+                            <div class="chip" data-val="M">M</div>
+                            <div class="chip" data-val="L">L</div>
+                            <div class="chip" data-val="XL">XL</div>
+                        </div>
+                    </div>
+                    <div class="filter-group">
+                        <h4>Цена до <span id="priceVal">10000</span> ₽</h4>
+                        <input type="range" class="price-range" id="priceRange" min="500" max="15000" step="100" value="10000">
+                    </div>
+                    <button class="btn btn-outline" style="width:100%" onclick="resetFilters()">
+                        <svg class="icon" style="width:1em;height:1em;vertical-align:-2px;margin-right:6px" viewBox="0 0 24 24"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+                        Сбросить
+                    </button>
+                </aside>
+                <main>
+                    <div class="products-grid" id="productsGrid"></div>
+                </main>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lookbook -->
+    <section class="lookbook" id="lookbook">
+        <div class="container">
+            <h2 class="section-title fade-up">Лукбук: Найди свой стиль</h2>
+            <p class="lookbook-intro fade-up">Исследуйте 12 уникальных стилей, от классики до смелых экспериментов. Каждый стиль — это философия, настроение и способ самовыражения.</p>
+            <div class="gallery-container">
+                <div class="gallery-nav gallery-prev" onclick="scrollGallery(-1)">
+                    <svg class="icon icon-lg" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+                </div>
+                <div class="gallery-track" id="galleryTrack"></div>
+                <div class="gallery-nav gallery-next" onclick="scrollGallery(1)">
+                    <svg class="icon icon-lg" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+                </div>
+                <div class="gallery-dots" id="galleryDots"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews -->
+    <section class="reviews" id="reviews">
+        <div class="container">
+            <h2 class="section-title fade-up">Отзывы покупателей</h2>
+            <div class="reviews-form fade-up">
+                <div class="form-group"><label>Ваше имя</label><input type="text" class="form-input" id="reviewName" placeholder="Иван"></div>
+                <div class="form-group"><label>Оценка</label>
+                    <div class="star-rating" id="stars">
+                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
+                </div>
+                <div class="form-group"><label>Отзыв</label><textarea class="form-input" id="reviewText" rows="4" placeholder="Ваш опыт..."></textarea></div>
+                <button class="btn btn-primary" onclick="submitReview()">Отправить</button>
+            </div>
+            <div class="reviews-grid" id="reviewsGrid"></div>
+        </div>
+    </section>
+
+    <!-- Contacts with Map -->
+    <section id="contacts" style="padding: 80px 0; background: #f9fafb;">
+        <div class="container">
+            <h2 class="section-title fade-up">Контакты</h2>
+            <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin-bottom: 30px;">
+                <div class="contact-item fade-up">
+                    <div class="contact-icon icon icon-xl" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></div>
+                    <h3>Телефон</h3>
+                    <p>+7 (347) 100-20-30</p>
+                </div>
+                <div class="contact-item fade-up">
+                    <div class="contact-icon icon icon-xl" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></div>
+                    <h3>Email</h3>
+                    <p>support@if6was9.ru</p>
+                </div>
+                <div class="contact-item fade-up">
+                    <div class="contact-icon icon icon-xl" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></div>
+                    <h3>Адрес</h3>
+                    <p>г. Белоярский, ХМАО-Югра, ул. Промышленная, 12</p>
+                </div>
+                <div class="contact-item fade-up">
+                    <div class="contact-icon icon icon-xl" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></div>
+                    <h3>Режим работы</h3>
+                    <p>Пн-Пт: 9:00-20:00<br>Сб-Вс: 10:00-18:00</p>
+                </div>
+            </div>
+            <div class="map-container fade-up">
+                <div id="map"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <div class="footer-logo">IF6WAS9</div>
+                    <p style="color: #9ca3af; margin-bottom: 16px;">Создаём удобные интерфейсы для осознанного шоппинга</p>
+                    <div class="footer-social">
+                        <a href="#" title="VK">VK</a>
+                        <a href="#" title="TG">TG</a>
+                        <a href="#" title="OK">OK</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Каталог</h4>
+                    <ul class="footer-links">
+                        <li><a href="#catalog">Женская одежда</a></li>
+                        <li><a href="#catalog">Мужская одежда</a></li>
+                        <li><a href="#catalog">Аксессуары</a></li>
+                        <li><a href="#lookbook">Новинки</a></li>
+                        <li><a href="#catalog">Скидки</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Покупателям</h4>
+                    <ul class="footer-links">
+                        <li><a onclick="openModal('deliveryModal')">
+                            <svg class="icon" style="width:1em;height:1em;vertical-align:-2px;margin-right:6px" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                            Доставка</a></li>
+                        <li><a onclick="openModal('returnModal')">
+                            <svg class="icon" style="width:1em;height:1em;vertical-align:-2px;margin-right:6px" viewBox="0 0 24 24"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+                            Возврат и обмен</a></li>
+                        <li><a onclick="openModal('sizeModal')">
+                            <svg class="icon" style="width:1em;height:1em;vertical-align:-2px;margin-right:6px" viewBox="0 0 24 24"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+                            Размерная сетка</a></li>
+                        <li><a onclick="openModal('paymentModal')">
+                            <svg class="icon" style="width:1em;height:1em;vertical-align:-2px;margin-right:6px" viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+                            Способы оплаты</a></li>
+                        <li><a href="#reviews">Отзывы</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Компания</h4>
+                    <ul class="footer-links">
+                        <li><a href="#contacts">О нас</a></li>
+                        <li><a href="#contacts">Контакты</a></li>
+                        <li><a onclick="openModal('privacyModal')">
+                            <svg class="icon" style="width:1em;height:1em;vertical-align:-2px;margin-right:6px" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                            Политика конфиденциальности</a></li>
+                        <li><a onclick="openModal('termsModal')">
+                            <svg class="icon" style="width:1em;height:1em;vertical-align:-2px;margin-right:6px" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                            Пользовательское соглашение</a></li>
+                        <li><a onclick="openModal('publicOfferModal')">Публичная оферта</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Поддержка</h4>
+                    <ul class="footer-links">
+                        <li><a href="tel:+73471002030">+7 (347) 100-20-30</a></li>
+                        <li><a href="mailto:support@if6was9.ru">support@if6was9.ru</a></li>
+                        <li><a>Чат с консультантом</a></li>
+                        <li><a>FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 «IF6WAS9». Курсовой проект. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Drawer -->
+    <div class="drawer" id="cartDrawer">
+        <div class="drawer-header">
+            <h3 class="flex" style="gap:10px">
+                <svg class="icon icon-lg" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+                Корзина
+            </h3>
+            <button onclick="toggleCart()">
+                <svg class="icon icon-lg" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+        </div>
+        <div class="drawer-body" id="cartItems"></div>
+        <div class="drawer-footer">
+            <div class="drawer-total"><span>Итого:</span><span id="cartTotal">0 ₽</span></div>
+            <button class="btn btn-primary" style="width:100%" onclick="openCheckout()">Оформить заказ</button>
+        </div>
+    </div>
+
+    <!-- Wishlist Drawer -->
+    <div class="drawer" id="wishlistDrawer">
+        <div class="drawer-header">
+            <h3 class="flex" style="gap:10px">
+                <svg class="icon icon-lg" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                Избранное
+            </h3>
+            <button onclick="toggleWishlist()">
+                <svg class="icon icon-lg" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+        </div>
+        <div class="drawer-body" id="wishlistItems"></div>
+        <div class="drawer-footer">
+            <button class="btn btn-outline" style="width:100%" onclick="toggleWishlist()">Закрыть</button>
+        </div>
+    </div>
+
+    <!-- Size Guide Modal -->
+    <div class="modal-overlay" id="sizeModal">
+        <div class="modal">
+            <div class="modal-header"><h3>Подбор размера</h3><button class="modal-close" onclick="closeModal('sizeModal')">
+                <svg class="icon icon-lg" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button></div>
+            <div class="modal-body">
+                <p style="margin-bottom:16px">Измерьте параметры тела сантиметровой лентой:</p>
+                <div class="grid" style="grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px">
+                    <div>
+                        <strong class="flex" style="gap:8px;margin-bottom:6px">
+                            <svg class="icon" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                            Обхват груди
+                        </strong>
+                        <span style="color:var(--text-muted);font-size:0.9rem">Измеряйте по наиболее выступающим точкам</span>
+                    </div>
+                    <div>
+                        <strong class="flex" style="gap:8px;margin-bottom:6px">
+                            <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                            Обхват талии
+                        </strong>
+                        <span style="color:var(--text-muted);font-size:0.9rem">На уровне пупка, без утягивания</span>
+                    </div>
+                </div>
+                <table class="size-table"><thead><tr><th>Размер</th><th>Грудь (см)</th><th>Талия (см)</th><th>Бёдра (см)</th></tr></thead><tbody><tr><td>XS</td><td>82-86</td><td>62-66</td><td>88-92</td></tr><tr><td>S</td><td>86-90</td><td>66-70</td><td>92-96</td></tr><tr><td>M</td><td>90-94</td><td>70-74</td><td>96-100</td></tr><tr><td>L</td><td>94-98</td><td>74-78</td><td>100-104</td></tr><tr><td>XL</td><td>98-102</td><td>78-82</td><td>104-108</td></tr></tbody></table>
+                <div class="size-badge flex" style="gap:8px">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                    Подходит по стандарту EU. При сомнениях берите на размер больше.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Return Policy Modal -->
+    <div class="modal-overlay policy-modal" id="returnModal">
+        <div class="modal">
+            <div class="modal-header"><h3 class="flex" style="gap:10px">
+                <svg class="icon icon-lg" viewBox="0 0 24 24"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+                Возврат и обмен товара
+            </h3><button class="modal-close" onclick="closeModal('returnModal')">
+                <svg class="icon icon-lg" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button></div>
+            <div class="modal-body">
+                <div class="policy-content">
+                    <h3>
+                        <svg class="icon icon-sm" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                        Условия возврата
+                    </h3>
+                    <p>Вы можете вернуть или обменять товар в течение <strong>14 дней</strong> с момента получения заказа, если он не подошёл по размеру, фасону или расцветке.</p>
+                    <h4>Требования к товару:</h4>
+                    <ul>
+                        <li>Товар не был в употреблении</li>
+                        <li>Сохранён товарный вид и потребительские свойства</li>
+                        <li>Не нарушены фабричные ярлыки и пломбы</li>
+                        <li>Есть чек или иное подтверждение покупки</li>
+                    </ul>
+                    <h3>
+                        <svg class="icon icon-sm" viewBox="0 0 24 24"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+                        Как оформить возврат:
+                    </h3>
+                    <ol style="margin-left: 20px; margin-bottom: 16px;">
+                        <li>Заполните заявление на возврат в личном кабинете или свяжитесь с нами по телефону</li>
+                        <li>Упакуйте товар в оригинальную упаковку</li>
+                        <li>Приложите заполненное заявление и чек</li>
+                        <li>Передайте курьеру или доставьте в пункт выдачи</li>
+                        <li>После проверки товара мы вернём деньги в течение 5-10 рабочих дней</li>
+                    </ol>
+                    <h3>
+                        <svg class="icon icon-sm" viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+                        Возврат денежных средств
+                    </h3>
+                    <p>Деньги возвращаются тем же способом, которым была произведена оплата:</p>
+                    <ul>
+                        <li>На банковскую карту — 5-10 рабочих дней</li>
+                        <li>Наличными при получении — сразу при возврате</li>
+                        <li>На электронный кошелёк — 1-3 рабочих дня</li>
+                    </ul>
+                    <h3>
+                        <svg class="icon icon-sm" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        Товары, не подлежащие возврату:
+                    </h3>
+                    <ul>
+                        <li>Нижнее бельё и чулочно-носочные изделия</li>
+                        <li>Купальники и плавки</li>
+                        <li>Парфюмерия и косметика</li>
+                        <li>Товары с повреждённой упаковкой</li>
+                    </ul>
+                    <h3>
+                        <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        Контакты службы возврата:
+                    </h3>
+                    <p><strong>Телефон:</strong> +7 (347) 100-20-30<br>
+                    <strong>Email:</strong> returns@if6was9.ru<br>
+                    <strong>Режим работы:</strong> Пн-Пт 9:00-20:00</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Privacy Policy Modal -->
+    <div class="modal-overlay policy-modal" id="privacyModal">
+        <div class="modal">
+            <div class="modal-header"><h3 class="flex" style="gap:10px">
+                <svg class="icon icon-lg" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                Политика конфиденциальности
+            </h3><button class="modal-close" onclick="closeModal('privacyModal')">
+                <svg class="icon icon-lg" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button></div>
+            <div class="modal-body">
+                <div class="policy-content">
+                    <h3>
+                        <svg class="icon icon-sm" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                        Общие положения
+                    </h3>
+                    <p>Настоящая Политика конфиденциальности описывает, как интернет-магазин «IF6WAS9» собирает, использует и защищает вашу личную информацию.</p>
+                    <h3>
+                        <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                        Какие данные мы собираем:
+                    </h3>
+                    <ul>
+                        <li><strong>Личная информация:</strong> имя, фамилия, телефон, email, адрес доставки</li>
+                        <li><strong>Платёжные данные:</strong> информация о банковской карте</li>
+                        <li><strong>Технические данные:</strong> IP-адрес, тип браузера, устройство, cookies</li>
+                        <li><strong>История покупок:</strong> заказы, предпочтения, просмотры товаров</li>
+                    </ul>
+                    <h3>
+                        <svg class="icon icon-sm" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                        Цели сбора данных:
+                    </h3>
+                    <ul>
+                        <li>Обработка и доставка заказов</li>
+                        <li>Связь с покупателем по вопросам заказа</li>
+                        <li>Улучшение качества обслуживания</li>
+                        <li>Персонализация предложений и рекомендаций</li>
+                        <li>Информирование об акциях и новинках</li>
+                        <li>Защита от мошенничества</li>
+                    </ul>
+                    <h3>
+                        <svg class="icon icon-sm" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        Защита данных:
+                    </h3>
+                    <p>Мы применяем современные методы защиты информации:</p>
+                    <ul>
+                        <li>SSL-шифрование всех передаваемых данных</li>
+                        <li>Хранение данных на защищённых серверах</li>
+                        <li>Ограниченный доступ к персональным данным сотрудников</li>
+                        <li>Регулярное обновление систем безопасности</li>
+                    </ul>
+                    <h3>
+                        <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        Ваши права:
+                    </h3>
+                    <ul>
+                        <li>Доступ к своим персональным данным</li>
+                        <li>Исправление неточной информации</li>
+                        <li>Удаление данных (право на забвение)</li>
+                        <li>Отзыв согласия на обработку данных</li>
+                        <li>Получение копии данных в машиночитаемом формате</li>
+                    </ul>
+                    <h3>
+                        <svg class="icon icon-sm" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                        Использование Cookies:
+                    </h3>
+                    <p>Мы используем cookies для:</p>
+                    <ul>
+                        <li>Аутентификации пользователей</li>
+                        <li>Сохранения товаров в корзине</li>
+                        <li>Аналитики посещаемости</li>
+                        <li>Персонализации контента</li>
+                    </ul>
+                    <h3>
+                        <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        Контакты:
+                    </h3>
+                    <p><strong>Email:</strong> privacy@if6was9.ru<br>
+                    <strong>Телефон:</strong> +7 (347) 100-20-30</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Terms of Service Modal -->
+    <div class="modal-overlay policy-modal" id="termsModal">
+        <div class="modal">
+            <div class="modal-header"><h3 class="flex" style="gap:10px">
+                <svg class="icon icon-lg" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                Пользовательское соглашение
+            </h3><button class="modal-close" onclick="closeModal('termsModal')">
+                <svg class="icon icon-lg" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button></div>
+            <div class="modal-body">
+                <div class="policy-content">
+                    <h3>Общие условия</h3>
+                    <p>Настоящее Пользовательское соглашение регулирует отношения между интернет-магазином «IF6WAS9» и пользователями сайта.</p>
+                    <h3>Регистрация и аккаунт:</h3>
+                    <ul>
+                        <li>Регистрация на сайте добровольная</li>
+                        <li>Пользователь предоставляет достоверную информацию</li>
+                        <li>Запрещена передача данных для входа третьим лицам</li>
+                        <li>Администрация вправе заблокировать аккаунт при нарушении правил</li>
+                    </ul>
+                    <h3>Правила покупок:</h3>
+                    <ul>
+                        <li>Оформление заказа означает согласие с условиями</li>
+                        <li>Цены указаны в рублях РФ</li>
+                        <li>Магазин оставляет право отменить заказ при отсутствии товара</li>
+                        <li>Доставка осуществляется по адресу, указанному покупателем</li>
+                    </ul>
+                    <h3>Ответственность сторон:</h3>
+                    <p><strong>Магазин не несёт ответственности за:</strong></p>
+                    <ul>
+                        <li>Невозможность доступа к сайту по техническим причинам</li>
+                        <li>Действия третьих лиц (курьерских служб, платёжных систем)</li>
+                        <li>Неточности в информации, предоставленной пользователем</li>
+                    </ul>
+                    <h3>Запрещённые действия:</h3>
+                    <ul>
+                        <li>Использование сайта в незаконных целях</li>
+                        <li>Вредоносное воздействие на работу сайта</li>
+                        <li>Копирование контента без разрешения</li>
+                        <li>Спам и рассылка рекламных материалов</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delivery Modal -->
+    <div class="modal-overlay policy-modal" id="deliveryModal">
+        <div class="modal">
+            <div class="modal-header"><h3 class="flex" style="gap:10px">
+                <svg class="icon icon-lg" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                Доставка
+            </h3><button class="modal-close" onclick="closeModal('deliveryModal')">
+                <svg class="icon icon-lg" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button></div>
+            <div class="modal-body">
+                <div class="policy-content">
+                    <h3>Способы доставки:</h3>
+                    <h4>1. Курьерская доставка</h4>
+                    <ul>
+                        <li>По г. Белоярский — 300 ₽ (бесплатно от 5000 ₽)</li>
+                        <li>Срок: 1-2 рабочих дня</li>
+                        <li>Время: с 10:00 до 21:00</li>
+                    </ul>
+                    <h4>2. Пункты выдачи (ПВЗ)</h4>
+                    <ul>
+                        <li>Стоимость: 200 ₽ (бесплатно от 3000 ₽)</li>
+                        <li>Срок: 2-4 рабочих дня</li>
+                        <li>Хранение: 7 дней бесплатно</li>
+                    </ul>
+                    <h4>3. Почта России</h4>
+                    <ul>
+                        <li>Стоимость: от 350 ₽</li>
+                        <li>Срок: 5-14 дней</li>
+                        <li>Отслеживание по трек-номеру</li>
+                    </ul>
+                    <h3>Условия доставки:</h3>
+                    <ul>
+                        <li>Бесплатная доставка при заказе от 5000 ₽</li>
+                        <li>Возможность примерки перед покупкой</li>
+                        <li>Уведомление о доставке по SMS и email</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Payment Modal -->
+    <div class="modal-overlay policy-modal" id="paymentModal">
+        <div class="modal">
+            <div class="modal-header"><h3 class="flex" style="gap:10px">
+                <svg class="icon icon-lg" viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+                Способы оплаты
+            </h3><button class="modal-close" onclick="closeModal('paymentModal')">
+                <svg class="icon icon-lg" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button></div>
+            <div class="modal-body">
+                <div class="policy-content">
+                    <h3>Доступные способы:</h3>
+                    <h4>1. Банковская карта онлайн</h4>
+                    <ul>
+                        <li>Visa, Mastercard, МИР</li>
+                        <li>Безопасное шифрование SSL</li>
+                        <li>Мгновенное подтверждение</li>
+                    </ul>
+                    <h4>2. Электронные кошельки</h4>
+                    <ul>
+                        <li>ЮMoney (Яндекс.Деньги)</li>
+                        <li>WebMoney</li>
+                        <li>Qiwi</li>
+                    </ul>
+                    <h4>3. При получении</h4>
+                    <ul>
+                        <li>Наличными курьеру</li>
+                        <li>Картой при доставке</li>
+                        <li>Комиссия: +50 ₽</li>
+                    </ul>
+                    <h4>4. Рассрочка</h4>
+                    <ul>
+                        <li>До 6 месяцев без процентов</li>
+                        <li>Оформление за 5 минут</li>
+                        <li>Только для заказов от 3000 ₽</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Public Offer Modal -->
+    <div class="modal-overlay policy-modal" id="publicOfferModal">
+        <div class="modal">
+            <div class="modal-header"><h3 class="flex" style="gap:10px">
+                <svg class="icon icon-lg" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                Публичная оферта
+            </h3><button class="modal-close" onclick="closeModal('publicOfferModal')">
+                <svg class="icon icon-lg" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button></div>
+            <div class="modal-body">
+                <div class="policy-content">
+                    <h3>Общие положения</h3>
+                    <p>Настоящий документ является публичной офертой в соответствии со ст. 437 ГК РФ. Совершение заказа означает полное согласие с условиями оферты.</p>
+                    <h3>Предмет оферты:</h3>
+                    <p>Продавец обязуется передать покупателю товары, а покупатель обязуется принять и оплатить их на условиях настоящего договора.</p>
+                    <h3>Цена и оплата:</h3>
+                    <ul>
+                        <li>Цены указаны в рублях РФ</li>
+                        <li>Продавец вправе изменять цены без уведомления</li>
+                        <li>Цена фиксируется в момент оформления заказа</li>
+                    </ul>
+                    <h3>Сроки исполнения:</h3>
+                    <ul>
+                        <li>Обработка заказа: 1 рабочий день</li>
+                        <li>Доставка: согласно выбранному способу</li>
+                        <li>При отсутствии товара — уведомление в течение 24 часов</li>
+                    </ul>
+                    <h3>Реквизиты:</h3>
+                    <p>БУ ПО «Белоярский политехнический колледж»<br>
+                    ИНН: 8603012345<br>
+                    Адрес: г. Белоярский, ХМАО-Югра</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lookbook Detail Modal -->
+    <div class="modal-overlay lookbook-modal" id="lookbookModal">
+        <div class="modal" style="max-width:900px">
+            <div class="modal-header"><h3 id="lbTitle">Стиль</h3><button class="modal-close" onclick="closeModal('lookbookModal')">
+                <svg class="icon icon-lg" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button></div>
+            <div class="modal-body">
+                <div class="lookbook-content" style="display:grid; grid-template-columns:1fr 1fr; gap:32px">
+                    <div class="lookbook-images">
+                        <div class="lookbook-main-img" id="lbMainImg" style="height:400px; background:#e5e7eb; border-radius:12px; background-size:cover; background-position:center; background-repeat:no-repeat;"></div>
+                        <div class="lookbook-thumbs" id="lbThumbs" style="display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:16px"></div>
+                    </div>
+                    <div class="lookbook-info">
+                        <h3 id="lbStyleName" style="font-size:2rem; margin-bottom:16px; color:var(--primary)"></h3>
+                        <p id="lbDescription" style="color:var(--text-muted); line-height:1.8; margin-bottom:24px"></p>
+                        <div class="lookbook-section" style="margin-bottom:24px"><h4 class="flex" style="gap:8px;margin-bottom:12px">
+                            <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                            Философия
+                        </h4><p id="lbPhilosophy" style="color:var(--text-muted); line-height:1.7"></p></div>
+                        <div class="lookbook-section" style="margin-bottom:24px"><h4 class="flex" style="gap:8px;margin-bottom:12px">
+                            <svg class="icon" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                            Ключевые элементы
+                        </h4><ul id="lbKeyItems" style="list-style:none; padding:0"></ul></div>
+                        <div class="lookbook-section" style="margin-bottom:24px"><h4 class="flex" style="gap:8px;margin-bottom:12px">
+                            <svg class="icon" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                            Советы стилиста
+                        </h4><ul id="lbTips" style="list-style:none; padding:0"></ul></div>
+                        <div class="lookbook-tags" id="lbTags" style="display:flex; flex-wrap:wrap; gap:8px; margin-top:16px"></div>
+                        <div style="margin-top:32px; padding-top:24px; border-top:2px solid #e5e7eb">
+                            <h4>
+                                <svg class="icon" style="width:1em;height:1em;vertical-align:-2px;margin-right:6px" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+                                Создать этот образ
+                            </h4>
+                            <p style="color:var(--text-muted); margin-bottom:16px">Подберите товары из нашей коллекции</p>
+                            <button class="btn btn-primary" onclick="closeModal('lookbookModal'); document.getElementById('catalog').scrollIntoView({behavior:'smooth'})">Перейти в каталог</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div class="modal-overlay" id="checkoutModal">
+        <div class="modal" style="max-width:550px">
+            <div class="modal-header"><h3>Оформление заказа</h3><button class="modal-close" onclick="closeModal('checkoutModal')">
+                <svg class="icon icon-lg" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button></div>
+            <div class="modal-body">
+                <div class="checkout-steps"><div class="step active" data-step="1">1</div><div class="step" data-step="2">2</div><div class="step" data-step="3">3</div></div>
+                <div class="step-content active" data-content="1">
+                    <h4>Контактные данные</h4><br>
+                    <div class="form-group"><label>Имя</label><input type="text" class="form-input" id="chName"></div>
+                    <div class="form-group"><label>Телефон</label><input type="tel" class="form-input" id="chPhone" placeholder="+7"></div>
+                    <div class="form-group"><label>Email</label><input type="email" class="form-input" id="chEmail"></div>
+                    <button class="btn btn-primary" onclick="nextStep(2)">Далее →</button>
+                </div>
+                <div class="step-content" data-content="2">
+                    <h4>Адрес доставки</h4><br>
+                    <div class="form-group"><label>Город</label><input type="text" class="form-input" id="chCity"></div>
+                    <div class="form-group"><label>Улица, дом, кв.</label><input type="text" class="form-input" id="chAddr"></div>
+                    <div class="form-group"><label>Почтовый индекс</label><input type="text" class="form-input" id="chZip"></div>
+                    <button class="btn btn-primary" onclick="nextStep(3)">Далее →</button>
+                </div>
+                <div class="step-content" data-content="3">
+                    <h4>Подтверждение</h4><br>
+                    <p style="margin-bottom:16px">Сумма: <strong id="chTotal">0 ₽</strong></p>
+                    <p style="color:#6b7280; margin-bottom:24px">Оплата при получении или картой онлайн. Данные защищены.</p>
+                    <button class="btn btn-success" style="width:100%; background:var(--success); color:white" onclick="finishCheckout()">Подтвердить заказ</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick View Modal -->
+    <div class="modal-overlay" id="quickViewModal">
+        <div class="modal" style="max-width:800px">
+            <div class="modal-header"><h3 id="qvTitle">Товар</h3><button class="modal-close" onclick="closeModal('quickViewModal')">
+                <svg class="icon icon-lg" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button></div>
+            <div class="modal-body flex" style="gap:24px; flex-wrap:wrap">
+                <div style="flex:1; min-width:250px; height:350px; background:#e5e7eb; border-radius:12px; background-size:cover; background-position:center; background-repeat:no-repeat;" id="qvImg"></div>
+                <div style="flex:1; min-width:250px">
+                    <p style="color:var(--accent); font-weight:700; font-size:1.2rem; margin-bottom:8px" id="qvPrice">0 ₽</p>
+                    <p style="color:#6b7280; margin-bottom:16px" id="qvDesc">Описание</p>
+                    <button class="btn btn-outline" onclick="openModal('sizeModal')">
+                        <svg class="icon" style="width:1em;height:1em;vertical-align:-2px;margin-right:6px" viewBox="0 0 24 24"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+                        Размерная сетка
+                    </button>
+                    <div style="margin-top:20px"><button class="btn btn-primary" id="qvAdd" style="width:100%">Добавить в корзину</button></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script>
+        // State
+        let cart = JSON.parse(localStorage.getItem('if6_cart')) || [];
+        let wishlist = JSON.parse(localStorage.getItem('if6_wish')) || [];
+        let currentFilter = { category: 'all', size: 'all', price: 15000 };
+        let reviewRating = 0;
+        let searchQuery = '';
+
+        // 📷 КАТАЛОГ: ВСТАВЬТЕ СВОИ ФОТО В ПОЛЕ `img`
+        const products = [
+            { id: 1, name: 'Пальто оверсайз', price: 8990, category: 'women', size: ['S','M','L'], color: 'Бежевый', desc: 'Классический крой, шерсть 60%', img: 'пальто.png' },
+            { id: 2, name: 'Джинсы straight', price: 4500, category: 'men', size: ['M','L'], color: 'Индиго', desc: 'Плотный деним, средняя посадка', img: 'джинсы.png' },
+            { id: 3, name: 'Шёлковая блуза', price: 6200, category: 'women', size: ['XS','S','M'], color: 'Белый', desc: 'Лёгкая ткань, пуговицы перламутр', img: 'блуза.png' },
+            { id: 4, name: 'Кроссовки базовые', price: 7800, category: 'access', size: ['38','39','40'], color: 'Чёрный', desc: 'Натуральная кожа, амортизация', img: 'кросы.png' },
+            { id: 5, name: 'Худи унисекс', price: 3200, category: 'men', size: ['M','L','XL'], color: 'Серый', desc: 'Хлопок 100%, оверсайз силуэт', img: 'худи.png' },
+            { id: 6, name: 'Сумка-тоут', price: 5400, category: 'access', size: ['one'], color: 'Чёрный', desc: 'Экокожа, внутренние карманы', img: 'сумка.png' },
+            { id: 7, name: 'Тренч классический', price: 9500, category: 'women', size: ['S','M'], color: 'Хаки', desc: 'Водоотталкивающая ткань', img: 'тренч.png' },
+            { id: 8, name: 'Рубашка оксфорд', price: 3900, category: 'men', size: ['M','L','XL'], color: 'Голубой', desc: '100% хлопок, приталенный крой', img: 'рубашка.png' },
+            { id: 9, name: 'Платье миди', price: 5900, category: 'women', size: ['XS','S','M','L'], color: 'Чёрный', desc: 'Элегантный крой, вискоза', img: 'платье.png' },
+            { id: 10, name: 'Кожаная куртка', price: 12900, category: 'women', size: ['S','M','L'], color: 'Коричневый', desc: 'Натуральная кожа, подкладка', img: 'кожанная куртка.png' },
+            { id: 11, name: 'Брюки чинос', price: 4200, category: 'men', size: ['M','L','XL'], color: 'Бежевый', desc: 'Хлопок, зауженный крой', img: 'брюки.png' },
+            { id: 12, name: 'Свитер кашемировый', price: 8500, category: 'women', size: ['S','M'], color: 'Серый', desc: 'Кашемир 70%, шерсть 30%', img: 'свитер.png' },
+            { id: 13, name: 'Кеды высокие', price: 5600, category: 'access', size: ['36','37','38','39'], color: 'Белый', desc: 'Холст, резиновая подошва', img: 'кеды высок.png' },
+            { id: 14, name: 'Пиджак приталенный', price: 7200, category: 'women', size: ['XS','S','M'], color: 'Тёмно-синий', desc: 'Шерсть, подкладка', img: 'пиджак.png' },
+            { id: 15, name: 'Футболка базовая', price: 1200, category: 'men', size: ['S','M','L','XL'], color: 'Белый', desc: 'Хлопок 100%, классический крой', img: 'футболка баз.png' }
+        ];
+
+        // 📷 ЛУКБУК: ВСТАВЬТЕ СВОИ ФОТО В МАССИВ `images`
+        const lookbookStyles = [
+            { id: 1, name: 'Осенняя капсула', subtitle: 'Тёплые оттенки и многослойность', color: '#8B6F47', description: 'Уютный и практичный стиль для прохладного сезона.', philosophy: 'Осень — время уютных свитеров и неспешных прогулок.', keyItems: ['Объёмный свитер', 'Тренч оверсайз', 'Джинсы прямого кроя', 'Ботинки', 'Шарф'], tips: ['Играйте с фактурами', 'Не бойтесь многослойности', 'Добавьте акцент через аксессуары'], tags: ['Уют', 'Многослойность', 'Комфорт'], images: ['осенняя.png'] },
+            { id: 2, name: 'Деловой стиль', subtitle: 'Чёткие линии и минимализм', color: '#2C3E50', description: 'Строгий и элегантный образ для офиса.', philosophy: 'Деловой стиль — инструмент коммуникации.', keyItems: ['Приталенный пиджак', 'Классические брюки', 'Белая рубашка', 'Туфли-лодочки', 'Сумка'], tips: ['Инвестируйте в качественный пиджак', 'Следите за посадкой', 'Используйте акценты'], tags: ['Профессионализм', 'Классика', 'Статус'], images: ['деловой.png'] },
+            { id: 3, name: 'Weekend Casual', subtitle: 'Комфорт для городской прогулки', color: '#5D9E98', description: 'Расслабленный образ для выходных.', philosophy: 'Weekend — время для себя. Комфорт не противоречит эстетике.', keyItems: ['Худи', 'Джинсы', 'Кроссовки', 'Кепка', 'Рюкзак'], tips: ['Выбирайте качественные базы', 'Добавьте яркий акцент', 'Удобная обувь'], tags: ['Комфорт', 'Город', 'Молодёжность'], images: ['weekend.png'] },
+            { id: 4, name: 'Evening Elegance', subtitle: 'Элегантность для особых случаев', color: '#8E44AD', description: 'Изысканный образ для вечера.', philosophy: 'Особый случай требует особого наряда.', keyItems: ['Платье миди', 'Классические лодочки', 'Клатч', 'Пайетки', 'Украшения'], tips: ['Выбирайте один акцент', 'Обратите внимание на посадку', 'Добавьте немного блеска'], tags: ['Роскошь', 'Вечер', 'Праздник'], images: ['evening.png'] },
+            { id: 5, name: 'Street Style', subtitle: 'Смелость и самовыражение', color: '#E74C3C', description: 'Яркий и дерзкий образ.', philosophy: 'Street Style — это свобода самовыражения.', keyItems: ['Оверсайз худи', 'Джинсы с дырками', 'Кроссовки-хайтопы', 'Кепка', 'Цепочки'], tips: ['Не бойтесь смешивать принты', 'Играйте с пропорциями', 'Добавьте винтажную вещь'], tags: ['Смелость', 'Эксперименты', 'Улица'], images: ['street.png'] },
+            { id: 6, name: 'Boho Chic', subtitle: 'Свобода и романтика', color: '#D68910', description: 'Богемный стиль с элементами винтажа.', philosophy: 'Boho — это философия свободы и близости к природе.', keyItems: ['Платье макси', 'Замшевая куртка', 'Широкие брюки', 'Ботинки', 'Украшения'], tips: ['Сочетайте разные принты', 'Добавьте винтажные украшения', 'Используйте натуральные ткани'], tags: ['Богема', 'Романтика', 'Винтаж'], images: ['boho.png'] },
+            { id: 7, name: 'Minimalism', subtitle: 'Меньше — значит больше', color: '#34495E', description: 'Лаконичный стиль с акцентом на качество.', philosophy: 'Минимализм — осознанный выбор в пользу качества.', keyItems: ['Белая футболка', 'Чёрные брюки', 'Бежевый тренч', 'Белые кроссовки', 'Часы'], tips: ['Инвестируйте в качество', 'Выбирайте нейтральную палитру', 'Следите за посадкой'], tags: ['Лаконичность', 'Качество', 'Капсула'], images: ['minimalism.png'] },
+            { id: 8, name: 'Sporty Elegance', subtitle: 'Спорт встречается с шиком', color: '#27AE60', description: 'Современный гибрид спортивного и элегантного.', philosophy: 'Sporty Elegance — ответ на ритм современной жизни.', keyItems: ['Спортивный пиджак', 'Леггинсы', 'Кроссовки премиум', 'Футболка', 'Сумка'], tips: ['Выбирайте качественные материалы', 'Сочетайте спорт с классикой', 'Обратите внимание на цвета'], tags: ['Активность', 'Комфорт', 'Современность'], images: ['sporty.png'] },
+            { id: 9, name: 'Vintage Romance', subtitle: 'Ностальгия по прошлому', color: '#B97B8A', description: 'Романтичный стиль с винтажными элементами.', philosophy: 'Винтаж — это дань уважения моде прошлых десятилетий.', keyItems: ['Платье в горошек', 'Кардиган', 'Юбка-солнце', 'Балетки', 'Винтажная сумочка'], tips: ['Ищите вещи на винтажных рынках', 'Сочетайте старое с новым', 'Добавьте ретро-аксессуары'], tags: ['Винтаж', 'Романтика', 'Ностальгия'], images: ['vintage.png'] },
+            { id: 10, name: 'Urban Explorer', subtitle: 'Городские приключения', color: '#5A6C7D', description: 'Практичный стиль для активных городских жителей.', philosophy: 'Для тех, кто живёт в ритме большого города.', keyItems: ['Куртка-парка', 'Удобные брюки', 'Кроссовки', 'Рюкзак', 'Шапка'], tips: ['Приоритет удобству', 'Многослойность для погоды', 'Тёмные практичные цвета'], tags: ['Город', 'Активность', 'Практичность'], images: ['urban.png'] },
+            { id: 11, name: 'Scandinavian Cool', subtitle: 'Северный минимализм', color: '#95A5A6', description: 'Скандинавская эстетика: простота и функциональность.', philosophy: 'Скандинавский стиль — это чистые линии.', keyItems: ['Свитер крупной вязки', 'Прямые джинсы', 'Пальто', 'Кожаные ботинки', 'Шарф'], tips: ['Нейтральная палитра', 'Натуральные ткани', 'Простые формы'], tags: ['Скандинавия', 'Минимализм', 'Натуральность'], images: ['scand.png'] },
+            { id: 12, name: 'Eco Conscious', subtitle: 'Осознанная мода', color: '#7D9D6F', description: 'Экологичный стиль для заботы о планете.', philosophy: 'Мода может быть красивой и ответственной.', keyItems: ['Одежда из переработанных материалов', 'Органический хлопок', 'Веганская обувь', 'Сумка из переработанного пластика'], tips: ['Выбирайте sustainable бренды', 'Покупайте меньше, но качественнее', 'Перерабатывайте старую одежду'], tags: ['Экология', 'Устойчивость', 'Осознанность'], images: ['eco.png'] }
+        ];
+
+        let initialReviews = JSON.parse(localStorage.getItem('if6_reviews')) || [
+            { name: 'Анна К.', rating: 5, text: 'Очень удобный подбор размера! Всё пришло вовремя.', date: '12.05.2026' },
+            { name: 'Дмитрий П.', rating: 4, text: 'Интерфейс чистый, корзина считает скидки автоматически.', date: '10.05.2026' }
+        ];
+
+        // Init
+        document.addEventListener('DOMContentLoaded', () => {
+            renderProducts();
+            renderLookbook();
+            renderReviews();
+            updateCounters();
+            initScrollObserver();
+            initEventListeners();
+            initYandexMap();
+        });
+
+        // YANDEX MAP
+        function initYandexMap() {
+            ymaps.ready(function () {
+                var myMap = new ymaps.Map("map", { center: [63.6833, 66.6667], zoom: 15, controls: ['zoomControl', 'searchControl'] });
+                var myPlacemark = new ymaps.Placemark([63.6833, 66.6667], {
+                    balloonContentHeader: "<b>IF6WAS9</b>",
+                    balloonContentBody: "г. Белоярский, ул. Промышленная, 12<br>Пн-Пт: 9:00-20:00, Сб-Вс: 10:00-18:00<br><a href='tel:+73471002030'>📞 +7 (347) 100-20-30</a>",
+                    hintContent: "Интернет-магазин IF6WAS9"
+                }, { preset: 'islands#darkOrangeFashionIcon' });
+                myMap.geoObjects.add(myPlacemark);
+                myMap.behaviors.disable('scrollZoom');
+            });
+        }
+
+        // Render Products
+        function renderProducts() {
+            const grid = document.getElementById('productsGrid');
+            const info = document.getElementById('searchInfo');
+            
+            let filtered = products.filter(p => {
+                const catMatch = currentFilter.category === 'all' || p.category === currentFilter.category;
+                const sizeMatch = currentFilter.size === 'all' || p.size.includes(currentFilter.size);
+                const priceMatch = p.price <= currentFilter.price;
+                const searchMatch = !searchQuery || p.name.toLowerCase().includes(searchQuery) || p.desc.toLowerCase().includes(searchQuery) || p.color.toLowerCase().includes(searchQuery);
+                return catMatch && sizeMatch && priceMatch && searchMatch;
+            });
+
+            info.innerHTML = searchQuery ? `<span>Найдено по запросу: <strong>"${searchQuery}"</strong> (${filtered.length})</span><button class="btn btn-outline" style="padding:6px 12px;font-size:0.85rem" onclick="clearSearch()">Сбросить</button>` : '';
+
+            grid.innerHTML = filtered.length ? filtered.map(p => `
+                <div class="product-card fade-up visible">
+                    <div class="product-img" style="background-image: url('${p.img}'); background-color: #e5e7eb;"></div>
+                    <div class="quick-actions">
+                        <button class="action-btn wishlist-btn ${wishlist.includes(p.id)?'liked':''}" onclick="toggleWish(${p.id})">
+                            <svg class="icon" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                        </button>
+                        <button class="action-btn" onclick="openQuickView(${p.id})">
+                            <svg class="icon" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">${p.name}</div>
+                        <div class="product-price">${p.price.toLocaleString()} ₽</div>
+                        <div class="product-meta">${p.color} • ${p.size.join(', ')}</div>
+                    </div>
+                </div>
+            `).join('') : '<p style="grid-column:1/-1;text-align:center;color:#6b7280;padding:40px 0">Нет товаров по заданным критериям</p>';
+        }
+
+        // Filters
+        document.querySelectorAll('.filter-chips').forEach(chipGroup => {
+            chipGroup.addEventListener('click', e => {
+                if(e.target.classList.contains('chip')) {
+                    chipGroup.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+                    e.target.classList.add('active');
+                    currentFilter[chipGroup.dataset.filter] = e.target.dataset.val;
+                    renderProducts();
+                }
+            });
+        });
+        document.getElementById('priceRange').addEventListener('input', e => {
+            currentFilter.price = parseInt(e.target.value);
+            document.getElementById('priceVal').textContent = currentFilter.price;
+            renderProducts();
+        });
+        function resetFilters() {
+            currentFilter = { category: 'all', size: 'all', price: 15000 };
+            document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+            document.querySelectorAll('.filter-chips .chip:first-child').forEach(c => c.classList.add('active'));
+            document.getElementById('priceRange').value = 15000;
+            document.getElementById('priceVal').textContent = '10000';
+            renderProducts();
+        }
+
+        // SEARCH ON ENTER
+        const searchInput = document.getElementById('searchInput');
+        searchInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                searchQuery = searchInput.value.toLowerCase().trim();
+                document.getElementById('searchOverlay').classList.remove('active');
+                document.getElementById('catalog').scrollIntoView({ behavior: 'smooth' });
+                renderProducts();
+                if(!searchQuery) showToast('Введите название товара', 'error');
+            }
+        });
+        function clearSearch() {
+            searchQuery = '';
+            searchInput.value = '';
+            document.getElementById('searchInfo').innerHTML = '';
+            renderProducts();
+        }
+
+        // LOOKBOOK
+        function renderLookbook() {
+            const track = document.getElementById('galleryTrack');
+            const dots = document.getElementById('galleryDots');
+            track.innerHTML = lookbookStyles.map((s, i) => `
+                <div class="gallery-item" style="background-image: url('${s.images[0]}'); background-color: #e5e7eb;" onclick="openLookbookModal(${i})">
+                    <div class="gallery-overlay"><h3>${s.name}</h3><p>${s.subtitle}</p></div>
+                </div>
+            `).join('');
+            dots.innerHTML = lookbookStyles.map((_, i) => `<div class="dot ${i===0?'active':''}" onclick="scrollToGalleryItem(${i})"></div>`).join('');
+            track.addEventListener('scroll', () => {
+                const scrollPos = track.scrollLeft;
+                const itemWidth = track.firstElementChild.offsetWidth + 24;
+                const activeIndex = Math.round(scrollPos / itemWidth);
+                document.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === activeIndex));
+            });
+        }
+        function openLookbookModal(index) {
+            const s = lookbookStyles[index];
+            document.getElementById('lbStyleName').textContent = s.name;
+            document.getElementById('lbDescription').textContent = s.description;
+            document.getElementById('lbPhilosophy').textContent = s.philosophy;
+            document.getElementById('lbMainImg').style.backgroundImage = `url('${s.images[0]}')`;
+            document.getElementById('lbThumbs').innerHTML = s.images.map(img => `<div class="lookbook-thumb" style="background-image: url('${img}'); background-color: #f3f4f6; height:100px; border-radius:8px; cursor:pointer" onclick="document.getElementById('lbMainImg').style.backgroundImage='url(\`${img}\`)'"></div>`).join('');
+            document.getElementById('lbKeyItems').innerHTML = s.keyItems.map(i => `<li style="padding:6px 0; color:var(--text-muted)">• ${i}</li>`).join('');
+            document.getElementById('lbTips').innerHTML = s.tips.map(t => `<li style="padding:6px 0; color:var(--text-muted)">• ${t}</li>`).join('');
+            document.getElementById('lbTags').innerHTML = s.tags.map(t => `<span class="lookbook-tag" style="padding:6px 14px; background:#f3f4f6; border-radius:20px; font-size:0.85rem">${t}</span>`).join('');
+            openModal('lookbookModal');
+        }
+        function scrollGallery(dir) { document.getElementById('galleryTrack').scrollBy({ left: dir * 374, behavior: 'smooth' }); }
+        function scrollToGalleryItem(i) { document.getElementById('galleryTrack').scrollTo({ left: i * 374, behavior: 'smooth' }); }
+
+        // REVIEWS WITH 1-5 STARS
+        const starContainer = document.getElementById('stars');
+        const starEls = starContainer.querySelectorAll('span');
+        
+        starEls.forEach((star, idx) => {
+            star.addEventListener('mouseover', () => highlightStars(idx + 1));
+            star.addEventListener('click', () => { reviewRating = idx + 1; updateStars(); });
+        });
+        starContainer.addEventListener('mouseleave', () => updateStars());
+        
+        function highlightStars(count) {
+            starEls.forEach((s, i) => s.style.color = i < count ? '#d4af37' : '#d1d5db');
+        }
+        function updateStars() {
+            starEls.forEach((s, i) => {
+                s.classList.toggle('active', i < reviewRating);
+                s.style.color = i < reviewRating ? '#d4af37' : '#d1d5db';
+            });
+        }
+
+        function submitReview() {
+            const name = document.getElementById('reviewName').value.trim();
+            const text = document.getElementById('reviewText').value.trim();
+            if (!name) return showToast('Введите ваше имя', 'error');
+            if (!text) return showToast('Напишите текст отзыва', 'error');
+            if (reviewRating === 0) return showToast('Поставьте оценку от 1 до 5 звёзд', 'error');
+
+            const newReview = { name, rating: reviewRating, text, date: new Date().toLocaleDateString() };
+            initialReviews.unshift(newReview);
+            localStorage.setItem('if6_reviews', JSON.stringify(initialReviews));
+            renderReviews();
+            
+            document.getElementById('reviewName').value = '';
+            document.getElementById('reviewText').value = '';
+            reviewRating = 0;
+            updateStars();
+            showToast('Отзыв успешно добавлен! ⭐', 'success');
+        }
+
+        function renderReviews() {
+            const grid = document.getElementById('reviewsGrid');
+            grid.innerHTML = initialReviews.map(r => `
+                <div class="review-card fade-up visible">
+                    <div class="review-header">
+                        <span class="review-author">${r.name}</span>
+                        <span style="display:flex; gap:4px; align-items:center">
+                            <span style="color:#d4af37">${'★'.repeat(r.rating)}</span>
+                            <span class="review-date">${r.date}</span>
+                        </span>
+                    </div>
+                    <div class="review-text">"${r.text}"</div>
+                </div>
+            `).join('');
+        }
+
+        // CART & WISHLIST
+        function toggleWish(id) {
+            wishlist = wishlist.includes(id) ? wishlist.filter(x => x !== id) : [...wishlist, id];
+            localStorage.setItem('if6_wish', JSON.stringify(wishlist));
+            updateCounters(); renderProducts(); renderWishlist();
+            showToast(wishlist.includes(id) ? 'Добавлено в избранное' : 'Удалено из избранного', 'success');
+        }
+        function addToCart(id) {
+            const existing = cart.find(i => i.id === id);
+            existing ? existing.qty++ : cart.push({ id, qty: 1 });
+            saveCart(); showToast('Добавлено в корзину', 'success');
+        }
+        function updateCartQty(id, delta) {
+            const item = cart.find(i => i.id === id);
+            if(!item) return;
+            item.qty = Math.max(1, item.qty + delta);
+            saveCart();
+        }
+        function removeFromCart(id) { cart = cart.filter(i => i.id !== id); saveCart(); }
+        function removeFromWishlist(id) { wishlist = wishlist.filter(i => i !== id); localStorage.setItem('if6_wish', JSON.stringify(wishlist)); updateCounters(); renderProducts(); renderWishlist(); showToast('Удалено из избранного', 'success'); }
+        function saveCart() { localStorage.setItem('if6_cart', JSON.stringify(cart)); updateCartUI(); }
+        function updateCounters() {
+            document.getElementById('cartCount').textContent = cart.reduce((a,b) => a+b.qty, 0);
+            document.getElementById('wishlistCount').textContent = wishlist.length;
+        }
+        function updateCartUI() {
+            updateCounters();
+            const container = document.getElementById('cartItems');
+            let total = 0;
+            if(cart.length === 0) { container.innerHTML = '<div class="empty-state">Корзина пуста</div>'; return; }
+            container.innerHTML = cart.map(item => {
+                const prod = products.find(p => p.id === item.id);
+                const sub = prod.price * item.qty; total += sub;
+                return `<div class="drawer-item"><div class="drawer-img" style="background-image: url('${prod.img}');"></div><div class="drawer-info"><div class="drawer-title">${prod.name}</div><div class="drawer-meta">${prod.color} • ${item.qty} шт</div><div class="drawer-controls"><button class="qty-btn" onclick="updateCartQty(${item.id},-1)">-</button><span>${item.qty}</span><button class="qty-btn" onclick="updateCartQty(${item.id},1)">+</button></div></div><div style="font-weight:600">${sub.toLocaleString()} ₽</div><button onclick="removeFromCart(${item.id})" style="margin-left:10px;color:var(--danger)">✕</button></div>`;
+            }).join('');
+            document.getElementById('cartTotal').textContent = total.toLocaleString() + ' ₽';
+            document.getElementById('chTotal').textContent = total.toLocaleString() + ' ₽';
+        }
+        function renderWishlist() {
+            const container = document.getElementById('wishlistItems');
+            const liked = products.filter(p => wishlist.includes(p.id));
+            if(liked.length === 0) { container.innerHTML = '<div class="empty-state">В избранном пока пусто</div>'; return; }
+            container.innerHTML = liked.map(p => `
+                <div class="drawer-item"><div class="drawer-img" style="background-image: url('${p.img}');"></div><div class="drawer-info"><div class="drawer-title">${p.name}</div><div class="drawer-meta">${p.color} • ${p.price.toLocaleString()} ₽</div><div style="margin-top:8px;display:flex;gap:8px"><button class="btn btn-outline" style="padding:6px 10px;font-size:0.85rem" onclick="addToCart(${p.id})">В корзину</button><button class="btn btn-outline" style="padding:6px 10px;font-size:0.85rem;color:var(--danger);border-color:var(--danger)" onclick="removeFromWishlist(${p.id})">Удалить</button></div></div></div>
+            `).join('');
+        }
+
+        // MODALS & DRAWERS
+        function toggleCart() { document.getElementById('cartDrawer').classList.toggle('open'); }
+        function toggleWishlist() { 
+            const d = document.getElementById('wishlistDrawer');
+            d.classList.contains('open') ? d.classList.remove('open') : (renderWishlist(), d.classList.add('open'));
+        }
+        function openModal(id) { document.getElementById(id).classList.add('active'); }
+        function closeModal(id) { document.getElementById(id).classList.remove('active'); }
+        function openQuickView(id) {
+            const p = products.find(x => x.id === id);
+            document.getElementById('qvTitle').textContent = p.name;
+            document.getElementById('qvPrice').textContent = p.price.toLocaleString() + ' ₽';
+            document.getElementById('qvDesc').textContent = p.desc;
+            document.getElementById('qvImg').style.backgroundImage = `url('${p.img}')`;
+            document.getElementById('qvAdd').onclick = () => { addToCart(id); closeModal('quickViewModal'); };
+            openModal('quickViewModal');
+        }
+        function openCheckout() {
+            if(cart.length === 0) return showToast('Добавьте товары в корзину', 'error');
+            document.querySelectorAll('.step').forEach(s => s.classList.remove('active','done'));
+            document.querySelectorAll('.step-content').forEach(s => s.classList.remove('active'));
+            document.querySelector('.step[data-step="1"]').classList.add('active');
+            document.querySelector('.step-content[data-content="1"]').classList.add('active');
+            closeModal('cartDrawer'); openModal('checkoutModal');
+        }
+        function nextStep(step) {
+            document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+            document.querySelectorAll('.step-content').forEach(s => s.classList.remove('active'));
+            for(let i=1; i<step; i++) document.querySelector(`.step[data-step="${i}"]`).classList.add('done');
+            document.querySelector(`.step[data-step="${step}"]`).classList.add('active');
+            document.querySelector(`.step-content[data-content="${step}"]`).classList.add('active');
+        }
+        function finishCheckout() { cart = []; saveCart(); closeModal('checkoutModal'); showToast('Заказ успешно оформлен! 🎉', 'success'); }
+
+        // TOAST
+        function showToast(msg, type='success') {
+            const container = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+            toast.className = `toast ${type}`;
+            toast.innerHTML = `${type==='success'?'✅':'⚠️'} ${msg}`;
+            container.appendChild(toast);
+            setTimeout(() => toast.remove(), 3000);
+        }
+
+        // SCROLL & EVENTS
+        function initScrollObserver() {
+            const obs = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); }), { threshold: 0.1 });
+            document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+            window.addEventListener('scroll', () => document.getElementById('header').classList.toggle('scrolled', window.scrollY > 50));
+        }
+        function initEventListeners() {
+            document.getElementById('cartBtn').onclick = toggleCart;
+            document.getElementById('wishlistBtn').onclick = toggleWishlist;
+            document.getElementById('searchBtn').onclick = () => {
+                const overlay = document.getElementById('searchOverlay');
+                overlay.classList.toggle('active');
+                if(overlay.classList.contains('active')) document.getElementById('searchInput').focus();
+            };
+            document.getElementById('searchClose').onclick = clearSearch;
+            document.getElementById('menuBtn').onclick = () => document.querySelector('.nav-links').classList.toggle('active');
+            window.onclick = e => { 
+                if(e.target.classList.contains('modal-overlay')) e.target.classList.remove('active'); 
+                if(e.target.classList.contains('drawer') && !e.target.closest('.drawer-header')) e.target.classList.remove('open');
+            };
+            document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', e => { e.preventDefault(); document.querySelector(a.getAttribute('href')).scrollIntoView({behavior:'smooth'}); }));
+        }
+    </script>
+</body>
+</html>
